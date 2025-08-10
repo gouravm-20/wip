@@ -1,4 +1,3 @@
-@ -1,43 +0,0 @@
 /*
 Problem Statement:
 Given a string A, calculate the length of the longest palindromic substring.
