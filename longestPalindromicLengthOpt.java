@@ -7,9 +7,11 @@ In the main function, for the same starting point:
  - Return the maximum of the above two.
 */
 
-public class Solution {
+import java.util.*;
 
-    public int checkPalindromeOdd(String A, int i) {
+public class Main {
+
+    public static int checkPalindromeOdd(String A, int i) {
         int n = A.length();        
         int s=i, e=i;
         while((s>=0 && e<n) && (A.charAt(s)==A.charAt(e))) {
@@ -18,7 +20,7 @@ public class Solution {
         return e-s-1;
     }
 
-    public int checkPalindromeEven(String A, int i) {
+    public static int checkPalindromeEven(String A, int i) {
         int n = A.length();
         int s=i, e=i+1;
         while((s>=0 && e<n) && (A.charAt(s)==A.charAt(e))) {
@@ -27,14 +29,14 @@ public class Solution {
         return e-s-1;      
     }
 
-    public String longestPalindrome(String A) {
+    public static void main(String args[]) {
+        String A = "adacbcdfdcbctggtc";
         int len = 0;
-
         for(int s=0; s<A.length(); s++) {
-            int lenOdd = checkPalindromeOdd(A, s);
-            int lenEven = checkPalindromeEven(A, s);
-            len = Math.max(lenEven, lenOdd);
+          int lenOdd = checkPalindromeOdd(A, s);
+          int lenEven = checkPalindromeEven(A, s);
+          len = Math.max(len, Math.max(lenEven, lenOdd));
         }
-        return len;        
+        System.out.println(len);        
     }
 }
