@@ -1,3 +1,40 @@
+public class Solution {
+    public int[][] diagonal(int[][] A) {
+        int N=A.length;
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        int[][] result = new int[2*N-1][N];
+        int row = 0;
+        for(int col=0; col<N; col++) {
+            ArrayList<Integer> anti = new ArrayList<>();
+            int r=row, c=col;
+            while(r<N && c>=0) {
+                anti.add(A[r][c]);
+                r++; c--;
+            }
+            ans.add(anti);
+        }
+
+        int col = N-1;
+        for(int r=1; r<N; r++) {
+            int a=r, c=col;
+            ArrayList<Integer> anti = new ArrayList<>();
+            while(a<N && c>=0) {
+                anti.add(A[a][c]);
+                a++; c--;
+            }
+            ans.add(anti);
+        }
+
+        for(int i=0; i<2*N-1; i++) {
+            for(int j=0; j<ans.get(i).size(); j++) {
+                result[i][j] = ans.get(i).get(j);
+            }
+        }
+        return result;
+    }
+}
+
+/*
 public class Main {
   public static void printAntiDiagonal(int i, int j, int[][] A) {
     int r=i, c=j;
@@ -34,5 +71,6 @@ public class Main {
       }
       System.out.println();
     }
+    */
   }
 }
