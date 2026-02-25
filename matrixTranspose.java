@@ -8,20 +8,13 @@ import java.util.*;
 public class Main {
   public static void main(String[] args) {
     int[][] A =  {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    for(int row=0; row<A.length; row++) {
-      for(int col=row; col<A[0].length; col++) {
+    for(int row=0; row<A.length-1; row++) {
+      for(int col=row+1; col<A[0].length; col++) {
         if(row==col) {continue;}
         int temp = A[row][col];
         A[row][col] = A[col][row];
         A[col][row] = temp;
       }
-    }
-    
-    for(int row=0; row<A.length; row++) {
-      for(int col=0; col<A[0].length; col++) {
-        System.out.print(A[row][col]+" ");
-      }
-      System.out.println();
     } 
   }
 }
@@ -34,20 +27,14 @@ public class Main {
     A.add(new ArrayList<>(Arrays.asList(4, 5, 6)));
     A.add(new ArrayList<>(Arrays.asList(7, 8, 9)));
 
-    for(int row=0; row<A.size(); row++) {
-      for(int col=row; col<A.get(0).size(); col++) {
+    for(int row=0; row<A.size()-1; row++) {
+      for(int col=row+1; col<A.get(0).size(); col++) {
         if(row==col) {continue;}
         int temp = A.get(row).get(col);
         A.get(row).set(col, A.get(col).get(row));
         A.get(col).set(row, temp);
       }
     }
-    
-    for(int row=0; row<A.size(); row++) {
-      for(int col=0; col<A.get(0).size(); col++) {
-        System.out.print(A.get(row).get(col)+" ");
-      }
-      System.out.println();
     } 
   }
 }
@@ -69,13 +56,6 @@ public class Main {
         arr.add(A.get(row).get(col));
       }
       ans.add(arr);
-    }
-    
-    for(int row=0; row<ans.size(); row++) {
-      for(int col=0; col<ans.get(0).size(); col++) {
-        System.out.print(ans.get(row).get(col)+" ");
-      }
-      System.out.println();
     } 
   }
 }
@@ -94,12 +74,7 @@ public class Main {
         transpose[c][r] = A[r][c];
       }
     }
-
-    for(int i=0; i<transpose.length; i++) {
-      for(int j=0; j<transpose[0].length; j++) {
-        System.out.print(transpose[i][j]+" ");
-      }
-      System.out.println();
-    }
+  }
+}
   }
 }
